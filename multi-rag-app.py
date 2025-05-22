@@ -13,10 +13,7 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 
-# os.environ["OPENAI_API_KEY"] = "sk-Q9oWfNAtDAm3mQLnvjRD0F3V0kBfgo3aVHVZK00RBbP9Swk8"
-# os.environ["OPENAI_API_BASE"] = "https://api.openai-proxy.org/v1"
-os.environ["OPENAI_API_KEY"] = "sk-oVyIUOAAvros6Yi6NcGWmkI00C4VpG6a8krBEBlkJexMhvpp"
-os.environ["OPENAI_API_BASE"] = "https://api.aiproxy.io"
+load_dotenv()
 os.environ["STREAMLIT_DISABLE_WATCHDOG_WARNINGS"] = "true"
 
 # Sidebar: File Uploader

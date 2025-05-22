@@ -3,6 +3,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+api_base = os.getenv("OPENAI_API_BASE") 
 
 import nltk
 nltk.data.path = ["/home/amax/nltk_data"]
@@ -106,11 +108,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 
-# os.environ["OPENAI_API_KEY"] = "sk-Q9oWfNAtDAm3mQLnvjRD0F3V0kBfgo3aVHVZK00RBbP9Swk8"
-# os.environ["OPENAI_API_BASE"] = "https://api.openai-proxy.org/v1"
-os.environ["OPENAI_API_KEY"] = "sk-oVyIUOAAvros6Yi6NcGWmkI00C4VpG6a8krBEBlkJexMhvpp"
-os.environ["OPENAI_API_BASE"] = "https://api.aiproxy.io"
-
 # Prompt
 prompt_text = """
 You are an assistant tasked with summarizing tables and text.
@@ -126,7 +123,10 @@ Table or text chunk: {element}
 prompt = ChatPromptTemplate.from_template(prompt_text)
 
 # Summary chain
-summarize_chain = {"element": lambda x: x} | prompt | ChatOpenAI(model="gpt-4") | StrOutputParser()
+llm =  ChatOpenAI(model="gpt-4",
+                openai_api_key=api_key,
+                openai_api_base=api_base ) 
+summarize_chain = {"element": lambda x: x} | prompt | llm | StrOutputParser()
 
 # Summarize text
 text_summaries = summarize_chain.batch(texts, {"max_concurrency": 3})
