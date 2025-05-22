@@ -1,0 +1,29 @@
+name: multimodal-rag1-env
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=11.8
+  - pip
+  - pip:
+      - unstructured
+      - unstructured[all-docs]
+      - sentence-transformers
+      - tqdm
+      - pyyaml
+      - pandas
+      - openai
+      - requests
+      - pillow
+      - lxml
+      - chromadb
+      - tiktoken
+      - langchain
+      - langchain-community
+      - langchain-openai
+      - python-dotenv

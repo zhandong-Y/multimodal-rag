@@ -1,0 +1,3 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: ml_dtypes in /home/amax/data3/anaconda3/envs/multi-rag/lib/python3.10/site-packages (0.5.1)
+Requirement already satisfied: numpy>=1.21 in /home/amax/data3/anaconda3/envs/multi-rag/lib/python3.10/site-packages (from ml_dtypes) (1.26.4)
