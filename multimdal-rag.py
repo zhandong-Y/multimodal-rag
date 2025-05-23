@@ -1,8 +1,10 @@
   # -*- coding: utf-8 -*-
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
-load_dotenv()
+dotenv_path = find_dotenv()
+print(f".env file found at: {dotenv_path}")
+load_dotenv(dotenv_path='./multimodal-rag/.env')
 api_key = os.getenv("OPENAI_API_KEY")
 api_base = os.getenv("OPENAI_API_BASE") 
 
